@@ -83,9 +83,6 @@ public class ASubgeneroTest extends BaseTest {
         p = null;
         try {
             p = service.load(1);
-            if (!p.getNombre().equals("Metal")) {
-                p = null;
-            }
         } catch (NotFoundException e) {
         }
 

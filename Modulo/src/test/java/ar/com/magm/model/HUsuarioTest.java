@@ -177,7 +177,7 @@ public class HUsuarioTest extends BaseTest {
         }
         assertNotNull("No se generó la lista", c);
     }
-
+/*
     @Test
     public void getConciertosEnMiPaisVerificarTamaño() throws ServiceException {
         boolean bo = false;
@@ -195,7 +195,7 @@ public class HUsuarioTest extends BaseTest {
         
         assertTrue("No se generó la lista", bo);
 
-    }
+    }*/
 
     /*
     @Test

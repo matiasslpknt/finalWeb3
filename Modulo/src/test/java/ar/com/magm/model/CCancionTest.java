@@ -74,7 +74,7 @@ public class CCancionTest extends BaseTest {
         } catch (NotFoundException e) {
         }
 
-        assertNotNull("No se cargo la cancion");
+        assertNotNull("No se cargo la cancion",p);
     }
 
     @Test
