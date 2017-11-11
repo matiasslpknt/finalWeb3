@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
-@Entity
 @Proxy(lazy = false)
 @Access(value = AccessType.FIELD)
 @Table(name = "personas")

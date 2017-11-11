@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
@@ -31,8 +32,12 @@ public class Playlist implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Playlist_Cancion", joinColumns = {
         @JoinColumn(name = "idPlaylist")}, inverseJoinColumns = {
-        @JoinColumn(name = "IdCancion")})
+        @JoinColumn(name = "idCancion", referencedColumnName = "id")})
     private List<Cancion> canciones;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Playlist() {
         super();

@@ -3,7 +3,8 @@ package ar.com.magm.model;
 //import static org.junit.Assert.assertEquals;
 import ar.com.magm.ti.exception.NotFoundException;
 import ar.com.magm.ti.model.Cancion;
-import ar.com.magm.ti.model.Subgenero;
+import ar.com.magm.ti.model.Genero;
+
 import static org.junit.Assert.assertNotEquals;
 
 import java.util.List;
@@ -12,11 +13,14 @@ import org.hibernate.SessionFactory;
 import org.junit.Test;
 
 import ar.com.magm.ti.model.dao.hibernate.CancionDAO;
-import ar.com.magm.ti.model.dao.hibernate.SubgeneroDAO;
+import ar.com.magm.ti.model.dao.hibernate.GeneroDAO;
+
 import ar.com.magm.ti.model.service.ICancionService;
-import ar.com.magm.ti.model.service.ISubgeneroService;
+import ar.com.magm.ti.model.service.IGeneroService;
+
 import ar.com.magm.ti.model.service.impl.CancionService;
-import ar.com.magm.ti.model.service.impl.SubgeneroService;
+import ar.com.magm.ti.model.service.impl.GeneroService;
+
 import ar.com.magm.ti.service.exception.ServiceException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,15 +31,15 @@ public class CCancionTest extends BaseTest {
     @Test
     public void testSave() throws ServiceException {
         ICancionService service = new CancionService(new CancionDAO((SessionFactory) sessionFactory()));
-        ISubgeneroService serviceSubgenero = new SubgeneroService(new SubgeneroDAO((SessionFactory) sessionFactory()));
+        IGeneroService serviceGenero = new GeneroService(new GeneroDAO((SessionFactory) sessionFactory()));
         Cancion p = new Cancion();
         p.setTitulo("Before I forguet");
         p.setDuracion("3'45''");
         p.setRating((float) 4.5);
         p.setReproducciones(15);
         try {
-            Subgenero f = serviceSubgenero.load(1);
-            p.setSubgenero(f);
+            Genero f = serviceGenero.load(1);
+            //p.setSubgenero(f);
             p = service.save(p);
 
         } catch (NotFoundException ex) {
@@ -80,7 +84,7 @@ public class CCancionTest extends BaseTest {
     @Test
     public void testUpdate() throws ServiceException {
         ICancionService service = new CancionService(new CancionDAO((SessionFactory) sessionFactory()));
-        ISubgeneroService serviceSubgenero = new SubgeneroService(new SubgeneroDAO((SessionFactory) sessionFactory()));
+        IGeneroService serviceGenero = new GeneroService(new GeneroDAO((SessionFactory) sessionFactory()));
         Cancion p = new Cancion();
         p.setId(1);
         p.setDuracion("9'11''");
@@ -88,8 +92,8 @@ public class CCancionTest extends BaseTest {
         p.setReproducciones(33);
         p.setTitulo("Smell like teen spirit");
         try {
-            Subgenero f = serviceSubgenero.load(2);
-            p.setSubgenero(f);
+            Genero f = serviceGenero.load(2);
+            p.setGenero(f);
             p = service.update(p);
         } catch (NotFoundException ex) {
             Logger.getLogger(CCancionTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,15 +104,15 @@ public class CCancionTest extends BaseTest {
     @Test
     public void testSaveOrUpdate() throws ServiceException {
         ICancionService service = new CancionService(new CancionDAO((SessionFactory) sessionFactory()));
-        ISubgeneroService serviceSubgenero = new SubgeneroService(new SubgeneroDAO((SessionFactory) sessionFactory()));
+        IGeneroService serviceGenero = new GeneroService(new GeneroDAO((SessionFactory) sessionFactory()));
         Cancion p = new Cancion();
         p.setDuracion("7'22''");
         p.setRating((float) 3.2);
         p.setReproducciones(9);
         p.setTitulo("Pulse of the maggot");
         try {
-            Subgenero f = serviceSubgenero.load(1);
-            p.setSubgenero(f);
+            Genero f = serviceGenero.load(1);
+            p.setGenero(f);
             p = service.saveOrUpdate(p);
         } catch (NotFoundException ex) {
             Logger.getLogger(CCancionTest.class.getName()).log(Level.SEVERE, null, ex);

@@ -29,8 +29,7 @@ public class Artista implements Serializable {
     private String nombre;
     private String genero;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idArtista")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "artista")
     private List<Concierto> conciertos;
 
     @OneToMany(cascade = CascadeType.ALL)

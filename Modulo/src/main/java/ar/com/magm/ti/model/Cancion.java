@@ -32,10 +32,23 @@ public class Cancion implements Serializable, Comparable<Cancion> {
     private String duracion;
     private float rating;
     private long reproducciones;
+   
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idSubgenero")
-    private Subgenero subgenero;
+    @JoinColumn(name = "idGenero")
+    private Genero genero;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAlbum")
+    private Album album;
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+    
     public Cancion() {
         super();
     }
@@ -80,12 +93,12 @@ public class Cancion implements Serializable, Comparable<Cancion> {
         this.reproducciones = reproducciones;
     }
 
-    public Subgenero getSubgenero() {
-        return subgenero;
+    public Genero getGenero() {
+        return genero;
     }
 
-    public void setSubgenero(Subgenero subgenero) {
-        this.subgenero = subgenero;
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     @Override

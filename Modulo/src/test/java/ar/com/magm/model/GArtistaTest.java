@@ -103,7 +103,12 @@ public class GArtistaTest extends BaseTest {
         IAlbumService serviceAlbum = new AlbumService(new AlbumDAO((SessionFactory) sessionFactory()));
 
         Artista p = new Artista();
-        p.setId(1);
+        try {
+            p = service.load(1);
+        } catch (NotFoundException ex) {
+            Logger.getLogger(GArtistaTest.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
         p.setNombre("Joss Stone");
         p.setGenero("Pop");
         ArrayList<Concierto> conciertos = new ArrayList<Concierto>();

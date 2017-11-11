@@ -34,14 +34,13 @@ public class Usuario implements Serializable {
     private String pais;
     private boolean premiun;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Playlist> playlists;
 
     @ManyToMany
     @JoinTable(name = "Artista_Seguido", joinColumns = {
-        @JoinColumn(name = "idUsuario")}, inverseJoinColumns = {
-        @JoinColumn(name = "IdArtista")})
+        @JoinColumn(name = "idUsuario", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "IdArtista", referencedColumnName = "id")})
     private List<Artista> artistasSeguidos;
 
     public Usuario() {

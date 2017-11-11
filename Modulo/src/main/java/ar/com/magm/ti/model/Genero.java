@@ -9,7 +9,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,11 +25,18 @@ public class Genero implements Serializable {
     @GeneratedValue
     private int idGenero;
     private String nombre;
+    
+    @OneToMany(mappedBy = "genero")
+    private List<Cancion> canciones;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idGenero")
-    private List<Subgenero> subgeneros;
+    public List<Cancion> getCanciones() {
+        return canciones;
+    }
 
+    public void setCanciones(List<Cancion> canciones) {
+        this.canciones = canciones;
+    }
+    
     public Genero() {
         super();
     }
@@ -49,14 +55,6 @@ public class Genero implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public List<Subgenero> getSubgeneros() {
-        return subgeneros;
-    }
-
-    public void setSubgeneros(List<Subgenero> subgeneros) {
-        this.subgeneros = subgeneros;
     }
 
     @Override

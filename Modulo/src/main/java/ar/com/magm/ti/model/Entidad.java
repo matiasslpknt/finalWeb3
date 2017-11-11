@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
-@Entity
+//@Entity
 @Proxy(lazy = false)
 @Access(value = AccessType.FIELD)
 @Table(name = "entidades")

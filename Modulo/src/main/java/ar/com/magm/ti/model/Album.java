@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,9 +30,20 @@ public class Album implements Serializable {
     private String nombre;
     private int año;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idAlbum")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "album")
     private List<Cancion> listaCanciones;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idArtista")
+    private Artista artista;
+
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
+    }
 
     public Album() {
         super();
