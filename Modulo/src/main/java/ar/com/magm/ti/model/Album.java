@@ -25,7 +25,7 @@ public class Album implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idAlbum;
 
     private String nombre;
     private int año;
@@ -34,7 +34,7 @@ public class Album implements Serializable {
     private List<Cancion> canciones;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idArtista")
     private Artista artista;
 
     public Artista getArtista() {
@@ -51,15 +51,15 @@ public class Album implements Serializable {
 
     @Override
     public int hashCode() {
-        return getId();
+        return getIdAlbum();
     }
 
-    public int getId() {
-        return id;
+    public int getIdAlbum() {
+        return idAlbum;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAlbum(int id) {
+        this.idAlbum = id;
     }
 
     public String getNombre() {
@@ -81,7 +81,7 @@ public class Album implements Serializable {
     @Override
     public boolean equals(Object obj) {
         Album p = (Album) obj;
-        return getId() == p.getId();
+        return getIdAlbum() == p.getIdAlbum();
     }
 
     @Override

@@ -59,7 +59,7 @@ public class HUsuarioTest extends BaseTest {
         }
 
         p = service.save(p);
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdUsuario());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class HUsuarioTest extends BaseTest {
         }
 
         p = service.saveOrUpdate(p);
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdUsuario());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class HUsuarioTest extends BaseTest {
         IArtistaService serviceArtista = new ArtistaService(new ArtistaDAO((SessionFactory) sessionFactory()));
 
         Usuario p = new Usuario();
-        p.setId(1);
+        p.setIdUsuario(1);
         p.setContraseña("6666");
         p.setMail("matiasslpknt@gmail.com");
         p.setPais("Argentina");
@@ -121,7 +121,7 @@ public class HUsuarioTest extends BaseTest {
         } catch (NotFoundException ex) {
             Logger.getLogger(HUsuarioTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdUsuario());
     }
 
     @Test

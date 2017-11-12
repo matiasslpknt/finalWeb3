@@ -26,7 +26,7 @@ public class Cancion implements Serializable, Comparable<Cancion> {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idCancion;
 
     private String titulo;
     private String duracion;
@@ -38,7 +38,7 @@ public class Cancion implements Serializable, Comparable<Cancion> {
     private Genero genero;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idAlbum")
     private Album album;
 
     public Album getAlbum() {
@@ -53,12 +53,12 @@ public class Cancion implements Serializable, Comparable<Cancion> {
         super();
     }
 
-    public int getId() {
-        return id;
+    public int getIdCancion() {
+        return idCancion;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idCancion = id;
     }
 
     public String getTitulo() {
@@ -103,13 +103,13 @@ public class Cancion implements Serializable, Comparable<Cancion> {
 
     @Override
     public int hashCode() {
-        return getId();
+        return getIdCancion();
     }
 
     @Override
     public boolean equals(Object obj) {
         Cancion p = (Cancion) obj;
-        return getId() == p.getId();
+        return getIdCancion() == p.getIdCancion();
     }
 
     @Override

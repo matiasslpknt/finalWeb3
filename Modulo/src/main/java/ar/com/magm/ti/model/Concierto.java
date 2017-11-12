@@ -31,7 +31,7 @@ public class Concierto implements Serializable {
     private Date fecha;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idArtista")
     private Artista artista;
 
     public Concierto() {

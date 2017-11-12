@@ -31,12 +31,12 @@ public class Playlist implements Serializable {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "playlist_cancion", joinColumns = {
-        @JoinColumn(name = "idPlaylist", referencedColumnName = "idPlaylist")}, inverseJoinColumns = {
-        @JoinColumn(name = "idCancion", referencedColumnName = "id")})
+        @JoinColumn(name = "idCancion", referencedColumnName = "idCancion")}, inverseJoinColumns = {
+        @JoinColumn(name = "idPlaylist", referencedColumnName = "idPlaylist")})
     private List<Cancion> canciones;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idUsuaio")
     private Usuario usuario;
 
     public Playlist() {

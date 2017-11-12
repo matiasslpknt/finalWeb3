@@ -24,7 +24,7 @@ public class Artista implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idArtista;
     private String nombre;
     private String genero;
 
@@ -35,15 +35,15 @@ public class Artista implements Serializable {
     private List<Album> albums;
 
     public void setId(int id) {
-        this.id = id;
+        this.idArtista = id;
     }
 
     public Artista() {
         super();
     }
 
-    public int getId() {
-        return id;
+    public int getIdArtista() {
+        return idArtista;
     }
 
     public String getNombre() {
@@ -65,7 +65,7 @@ public class Artista implements Serializable {
     @Override
     public boolean equals(Object obj) {
         Artista p = (Artista) obj;
-        return getId() == p.getId();
+        return getIdArtista() == p.getIdArtista();
     }
 
     public List<Concierto> getConciertos() {

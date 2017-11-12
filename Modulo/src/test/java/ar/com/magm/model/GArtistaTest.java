@@ -54,7 +54,7 @@ public class GArtistaTest extends BaseTest {
         }
 
         p = service.save(p);
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdArtista());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class GArtistaTest extends BaseTest {
          * ****************************************************
          * */
         p = service.saveOrUpdate(p);
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdArtista());
     }
 
     //@Test
@@ -132,7 +132,7 @@ public class GArtistaTest extends BaseTest {
         } catch (NotFoundException e) {
 
         }
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdArtista());
     }
 
     @Test

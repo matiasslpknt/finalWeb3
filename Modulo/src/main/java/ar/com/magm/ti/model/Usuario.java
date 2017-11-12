@@ -27,7 +27,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idUsuario;
     private String usuario;
     private String contraseña;
     private String mail;
@@ -39,8 +39,8 @@ public class Usuario implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "artista_seguido", joinColumns = {
-        @JoinColumn(name = "idUsuario", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "IdArtista", referencedColumnName = "id")})
+        @JoinColumn(name = "IdArtista", referencedColumnName = "idArista")}, inverseJoinColumns = {
+        @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")})
     private List<Artista> artistasSeguidos;
 
     public Usuario() {
@@ -55,8 +55,8 @@ public class Usuario implements Serializable {
         this.playlists = playlists;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
     public List<Artista> getArtistasSeguidos() {
@@ -67,8 +67,8 @@ public class Usuario implements Serializable {
         this.artistasSeguidos = artistasSeguidos;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int id) {
+        this.idUsuario = id;
     }
 
     public String getUsuario() {
@@ -113,13 +113,13 @@ public class Usuario implements Serializable {
 
     @Override
     public int hashCode() {
-        return getId();
+        return getIdUsuario();
     }
 
     @Override
     public boolean equals(Object obj) {
         Usuario p = (Usuario) obj;
-        return getId() == p.getId();
+        return getIdUsuario() == p.getIdUsuario();
     }
 
     @Override

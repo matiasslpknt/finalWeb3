@@ -43,7 +43,7 @@ public class FAlbumTest extends BaseTest {
             Logger.getLogger(FAlbumTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         p = service.save(p);
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdAlbum());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class FAlbumTest extends BaseTest {
             Logger.getLogger(FAlbumTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         p = service.saveOrUpdate(p);
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdAlbum());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class FAlbumTest extends BaseTest {
         IAlbumService service = new AlbumService(new AlbumDAO((SessionFactory) sessionFactory()));
         ICancionService serviceCancion = new CancionService(new CancionDAO((SessionFactory) sessionFactory()));
         Album p = new Album();
-        p.setId(1);
+        p.setIdAlbum(1);
         p.setAño(2000);
         p.setNombre("Iowa");
         p.setListaCanciones(new ArrayList<Cancion>());
@@ -86,7 +86,7 @@ public class FAlbumTest extends BaseTest {
         } catch (NotFoundException ex) {
             Logger.getLogger(FAlbumTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        assertNotEquals("Se generó mal el id", 0, p.getId());
+        assertNotEquals("Se generó mal el id", 0, p.getIdAlbum());
     }
 
     @Test

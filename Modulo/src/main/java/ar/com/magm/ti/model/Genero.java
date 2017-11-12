@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,8 +25,8 @@ public class Genero implements Serializable {
     @GeneratedValue
     private int idGenero;
     private String nombre;
-    
-    @OneToMany(mappedBy = "genero")
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "genero")
     private List<Cancion> canciones;
 
     public List<Cancion> getCanciones() {
@@ -35,7 +36,7 @@ public class Genero implements Serializable {
     public void setCanciones(List<Cancion> canciones) {
         this.canciones = canciones;
     }
-    
+
     public Genero() {
         super();
     }
