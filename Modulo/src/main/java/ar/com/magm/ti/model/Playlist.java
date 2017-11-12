@@ -30,17 +30,25 @@ public class Playlist implements Serializable {
     private String nombre;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "Playlist_Cancion", joinColumns = {
-        @JoinColumn(name = "idPlaylist")}, inverseJoinColumns = {
+    @JoinTable(name = "playlist_cancion", joinColumns = {
+        @JoinColumn(name = "idPlaylist", referencedColumnName = "idPlaylist")}, inverseJoinColumns = {
         @JoinColumn(name = "idCancion", referencedColumnName = "id")})
     private List<Cancion> canciones;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "id")
     private Usuario usuario;
 
     public Playlist() {
         super();
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public List<Cancion> getCanciones() {

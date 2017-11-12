@@ -34,11 +34,11 @@ public class Cancion implements Serializable, Comparable<Cancion> {
     private long reproducciones;
    
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idGenero")
+    @JoinColumn(name = "idGenero", updatable = false, insertable = false)
     private Genero genero;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idAlbum")
+    @JoinColumn(name = "id")
     private Album album;
 
     public Album getAlbum() {

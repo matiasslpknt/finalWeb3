@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

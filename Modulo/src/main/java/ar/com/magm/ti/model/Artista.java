@@ -33,7 +33,6 @@ public class Artista implements Serializable {
     private List<Concierto> conciertos;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idArtista")
     private List<Album> albums;
 
     public void setId(int id) {

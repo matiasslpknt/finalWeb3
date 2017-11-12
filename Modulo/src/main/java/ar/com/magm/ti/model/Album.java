@@ -31,10 +31,10 @@ public class Album implements Serializable {
     private int año;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "album")
-    private List<Cancion> listaCanciones;
+    private List<Cancion> canciones;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idArtista")
+    @JoinColumn(name = "id")
     private Artista artista;
 
     public Artista getArtista() {
@@ -89,11 +89,11 @@ public class Album implements Serializable {
         return String.format("Album: nombre=%s, año=%s", getNombre(), getAño());
     }
 
-    public List<Cancion> getListaCanciones() {
-        return listaCanciones;
+    public List<Cancion> getCanciones() {
+        return canciones;
     }
 
-    public void setListaCanciones(List<Cancion> listaCanciones) {
-        this.listaCanciones = listaCanciones;
+    public void setListaCanciones(List<Cancion> canciones) {
+        this.canciones = canciones;
     }
 }
