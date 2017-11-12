@@ -46,7 +46,7 @@ public class HUsuarioTest extends BaseTest {
 
         try {
             ArrayList<Playlist> pls = new ArrayList<Playlist>();
-            Playlist pl;
+            Playlist pl = new Playlist();
             pl = servicePlaylist.load(1);
             pls.add(pl);
             p.setPlaylists(pls);
@@ -129,9 +129,6 @@ public class HUsuarioTest extends BaseTest {
         
         IUsuarioService service = new UsuarioService(new UsuarioDAO((SessionFactory) sessionFactory()), new ConciertoDAO((SessionFactory) sessionFactory()));
         List<Usuario> p = service.list("matiasslpknt");
-        if(p.size()==0){
-            p = null;
-        }
         assertNotNull("No se generó la lista", p);
     }
 
@@ -167,10 +164,6 @@ public class HUsuarioTest extends BaseTest {
 
             Usuario usuario = service.load(1);
             c = service.getConciertosEnMiPais(usuario);
-            if(c.size()==0){
-                c = null;
-            }
-
             
         } catch (NotFoundException ex) {
             Logger.getLogger(HUsuarioTest.class.getName()).log(Level.SEVERE, null, ex);

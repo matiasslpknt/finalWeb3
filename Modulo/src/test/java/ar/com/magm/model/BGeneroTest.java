@@ -24,7 +24,6 @@ public class BGeneroTest extends BaseTest {
 
         Genero p = new Genero();
         p.setNombre("Metal");
-        //p.setSubgeneros(subgeneros);
 
         p = service.save(p);
         assertNotEquals("Se generó mal el id", 0, p.getIdGenero());
@@ -36,7 +35,6 @@ public class BGeneroTest extends BaseTest {
         Genero p = new Genero();
 
         p.setNombre("Trash");
-        //p.setSubgeneros(subgeneros);
 
         p = service.saveOrUpdate(p);
         assertNotEquals("Se generó mal el id", 0, p.getIdGenero());

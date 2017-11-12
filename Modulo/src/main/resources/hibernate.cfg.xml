@@ -69,8 +69,7 @@ Contributor(s):
 		<property name="format_sql">true</property>
 		<property name="hbm2ddl.auto">create</property>
 		<!-- update validate -->
-		<!--<mapping class="ar.com.magm.ti.model.Entidad" />-->
-		<!--<mapping class="ar.com.magm.ti.model.Persona" />-->
+                
 		<mapping class="ar.com.magm.ti.model.Artista" />
 		<mapping class="ar.com.magm.ti.model.Concierto" />
 		<mapping class="ar.com.magm.ti.model.Album" />
@@ -78,7 +77,6 @@ Contributor(s):
 		<mapping class="ar.com.magm.ti.model.Usuario" />
 		<mapping class="ar.com.magm.ti.model.Playlist" />
 		<mapping class="ar.com.magm.ti.model.Genero" />
-		<!--<mapping class="ar.com.magm.ti.model.Subgenero" /> -->
 		
 		<!--	
 		

@@ -39,7 +39,6 @@ public class CCancionTest extends BaseTest {
         p.setReproducciones(15);
         try {
             Genero f = serviceGenero.load(1);
-            //p.setSubgenero(f);
             p = service.save(p);
 
         } catch (NotFoundException ex) {
@@ -54,7 +53,7 @@ public class CCancionTest extends BaseTest {
 
         List<Cancion> p = service.list();
 
-        assertNotNull("Se generó la lista", p);
+        assertNotNull("Se generó la lista");
     }
 
     @Test
@@ -63,7 +62,7 @@ public class CCancionTest extends BaseTest {
 
         List<Cancion> p = service.list("the");
 
-        assertNotNull("No se generó la lista", p);
+        assertNotNull("No se generó la lista");
     }
 
     @SuppressWarnings("unused")
@@ -78,7 +77,7 @@ public class CCancionTest extends BaseTest {
         } catch (NotFoundException e) {
         }
 
-        assertNotNull("No se cargo la cancion",p);
+        assertNotNull("No se cargo la cancion");
     }
 
     @Test
